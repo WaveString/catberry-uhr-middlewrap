@@ -2,7 +2,7 @@
   "name": "catberry-uhr-mocker",
   "version": "0.1.0",
   "description": "Simulate HTTP requests with data fixtures",
-  "main": "src/mocker.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint ./lib",
     "test": "ava"
@@ -27,10 +27,14 @@
   "homepage": "https://github.com/morhetz/catberry-uhr-mocker#readme",
   "devDependencies": {
     "ava": "^0.11.0",
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-runtime": "^6.5.0",
+    "catberry-uhr": "^4.2.3",
     "eslint": "^2.1.0"
   },
   "dependencies": {
-    "catberry-uhr": "^4.2.3",
     "path-to-regexp": "^1.2.1"
   }
 }
