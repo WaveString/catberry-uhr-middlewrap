@@ -1,0 +1,36 @@
+{
+  "name": "catberry-uhr-mocker",
+  "version": "0.1.0",
+  "description": "Simulate HTTP requests with data fixtures",
+  "main": "src/mocker.js",
+  "scripts": {
+    "lint": "eslint ./lib",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morhetz/catberry-uhr-mocker.git"
+  },
+  "keywords": [
+    "catberry",
+    "http",
+    "ajax",
+    "request",
+    "mock",
+    "stub"
+  ],
+  "author": "Pavel Pertsev <morhetz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morhetz/catberry-uhr-mocker/issues"
+  },
+  "homepage": "https://github.com/morhetz/catberry-uhr-mocker#readme",
+  "devDependencies": {
+    "ava": "^0.11.0",
+    "eslint": "^2.1.0"
+  },
+  "dependencies": {
+    "catberry-uhr": "^4.2.3",
+    "path-to-regexp": "^1.2.1"
+  }
+}
