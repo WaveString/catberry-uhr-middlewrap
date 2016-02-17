@@ -3,15 +3,18 @@ import uhr from 'catberry-uhr';
 
 import mock from '../index.js';
 
-test('should setup mocker', assert => {
+test('should setup mocker and unset it back', assert => {
   const $uhr = new uhr.UHR();
   assert.notOk($uhr._mocker);
-  mock($uhr);
 
+  const mocker = mock($uhr);
   assert.ok($uhr._mocker);
+
+  mocker.unmock();
+  assert.notOk($uhr._mocker);
 });
 
-test('should mock for get', async assert => {
+test('should mock get', async assert => {
   const $uhr = new uhr.UHR();
   const mocker = mock($uhr);
 
@@ -25,7 +28,7 @@ test('should mock for get', async assert => {
   assert.is(result.content.id, 'mockedGet');
 });
 
-test('should mock for post', async assert => {
+test('should mock post', async assert => {
   const $uhr = new uhr.UHR();
   const mocker = mock($uhr);
 
