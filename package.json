@@ -1,5 +1,5 @@
 {
-  "name": "catberry-uhr-middlewrapper",
+  "name": "catberry-uhr-middlewrap",
   "version": "0.1.0",
   "description": "Middlewrapify isomorphic HTTP requests",
   "main": "build/index.js",
