@@ -1,15 +1,15 @@
 {
-  "name": "catberry-uhr-mocker",
+  "name": "catberry-uhr-middlewrapper",
   "version": "0.1.0",
-  "description": "Simulate HTTP requests with data fixtures",
-  "main": "index.js",
+  "description": "Middlewrapify isomorphic HTTP requests",
+  "main": "build/index.js",
   "scripts": {
     "lint": "eslint ./lib",
     "test": "ava"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/morhetz/catberry-uhr-mocker.git"
+    "url": "git+https://github.com/morhetz/catberry-uhr-middlewrap.git"
   },
   "keywords": [
     "catberry",
@@ -22,9 +22,9 @@
   "author": "Pavel Pertsev <morhetz@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/morhetz/catberry-uhr-mocker/issues"
+    "url": "https://github.com/morhetz/catberry-uhr-middlewrap/issues"
   },
-  "homepage": "https://github.com/morhetz/catberry-uhr-mocker#readme",
+  "homepage": "https://github.com/morhetz/catberry-uhr-middlewrap#readme",
   "devDependencies": {
     "ava": "^0.11.0",
     "babel-core": "^6.5.2",
