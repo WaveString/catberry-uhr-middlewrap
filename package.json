@@ -28,11 +28,17 @@
   "devDependencies": {
     "ava": "^0.11.0",
     "babel-core": "^6.5.2",
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-syntax-flow": "^6.5.0",
+    "babel-plugin-transform-flow-strip-types": "^6.5.0",
+    "babel-plugin-typecheck": "^3.6.1",
+    "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": "^6.5.0",
     "catberry-uhr": "^4.2.3",
-    "eslint": "^2.1.0"
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.1"
   },
   "dependencies": {
     "path-to-regexp": "^1.2.1"

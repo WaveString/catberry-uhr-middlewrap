@@ -1,38 +1,67 @@
 import test from 'ava';
 import uhr from 'catberry-uhr';
 
-import mock from '../index.js';
+import middlewrap from '../index.js';
 
-test('should setup mocker and unset it back', assert => {
-  const $uhr = new uhr.UHR();
-  assert.notOk($uhr._mocker);
+test('should wrap uhr', assert => {
+  let $uhr = new uhr.UHR();
+  assert.notOk($uhr._middlewrap);
 
-  const mocker = mock($uhr);
-  assert.ok($uhr._mocker);
-
-  mocker.unmock();
-  assert.notOk($uhr._mocker);
+  $uhr = middlewrap($uhr);
+  assert.ok($uhr._middlewrap);
 });
 
-test('should mock get', async assert => {
-  const $uhr = new uhr.UHR();
-  const mocker = mock($uhr);
+test('should mock with object', async assert => {
+  const $uhr = middlewrap(new uhr.UHR());
 
-  mocker.get('http://jsonplaceholder.typicode.com/posts/:id', () => {
+  $uhr.before.get('http://jsonplaceholder.typicode.com/posts/:id', {
+    content: { id: 'mockedObject' }
+  });
+
+  const result = await $uhr.get('http://jsonplaceholder.typicode.com/posts/42');
+  assert.is(result.content.id, 'mockedObject');
+});
+
+test('should mock with function', async assert => {
+  const $uhr = middlewrap(new uhr.UHR());
+
+  $uhr.before.get('http://jsonplaceholder.typicode.com/posts/:id', () => {
     return Promise.resolve({
-      content: { id: 'mockedGet' }
+      content: { id: 'mockedFunction' }
     });
   });
 
   const result = await $uhr.get('http://jsonplaceholder.typicode.com/posts/42');
-  assert.is(result.content.id, 'mockedGet');
+  assert.is(result.content.id, 'mockedFunction');
 });
 
-test('should mock post', async assert => {
-  const $uhr = new uhr.UHR();
-  const mocker = mock($uhr);
+test('should stack middlewares', async assert => {
+  const $uhr = middlewrap(new uhr.UHR());
+  assert.plan(3);
 
-  mocker.post('http://jsonplaceholder.typicode.com/posts', {
+  $uhr.before.get('http://jsonplaceholder.typicode.com/posts/:id', (parameters, next) => {
+    // called first
+    assert.pass();
+    return next(parameters);
+  });
+
+  $uhr.before.get('http://jsonplaceholder.typicode.com/posts/:id', () => {
+    // called second
+    assert.pass();
+    return Promise.resolve({
+      content: { id: 'mockedMiddlewares' }
+    });
+  });
+
+  const result = await $uhr.get('http://jsonplaceholder.typicode.com/posts/42');
+  assert.is(result.content.id, 'mockedMiddlewares');
+});
+
+
+test('should mock post', async assert => {
+  const $uhr = middlewrap(new uhr.UHR());
+
+  $uhr.before.post('http://jsonplaceholder.typicode.com/posts', {
     content: { id: 'mockedPost' }
   });
 
