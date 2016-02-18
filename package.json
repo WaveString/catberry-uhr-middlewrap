@@ -1,9 +1,11 @@
 {
   "name": "catberry-uhr-middlewrap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Middlewrapify isomorphic HTTP requests",
   "main": "build/index.js",
   "scripts": {
+    "compile": "babel index.js --out-file build/index.js",
+    "prepublish": "npm run compile",
     "lint": "eslint ./lib",
     "test": "ava"
   },
@@ -27,6 +29,7 @@
   "homepage": "https://github.com/morhetz/catberry-uhr-middlewrap#readme",
   "devDependencies": {
     "ava": "^0.11.0",
+    "babel-cli": "^6.5.1",
     "babel-core": "^6.5.2",
     "babel-eslint": "^5.0.0",
     "babel-plugin-syntax-flow": "^6.5.0",
