@@ -10,7 +10,7 @@
     "lint": "eslint ./lib",
     "test": "nyc ava",
     "preversion": "npm test",
-    "postversion": "git push --tags"
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
