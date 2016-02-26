@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "babel lib/middlewrap.js --out-file dist/index.js",
-    "prepublish": "BABEL_ENV=production npm run compile",
+    "prepublish": "BABEL_ENV=production npm run build",
     "report": "nyc report --reporter=html",
     "lint": "eslint ./lib",
     "test": "nyc ava",
@@ -47,5 +47,8 @@
   },
   "dependencies": {
     "path-to-regexp": "^1.2.1"
+  },
+  "ava": {
+    "require": ["babel-core/register"]
   }
 }

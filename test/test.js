@@ -1,9 +1,10 @@
 import test from 'ava';
 import uhr from 'catberry-uhr';
 
-import middlewrap from '../index.js';
+import middlewrap from '../lib/middlewrap.js';
 
 const testApi = 'http://jsonplaceholder.typicode.com';
+
 test('should wrap uhr', assert => {
   let $uhr = new uhr.UHR();
   assert.notOk($uhr._middlewrap);
