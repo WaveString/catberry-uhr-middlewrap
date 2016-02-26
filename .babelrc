@@ -3,21 +3,24 @@
     "es2015",
     "stage-0"
   ],
-  "plugins": [
-    [
-      "typecheck", {
-        "disable": { "production": true }
-      }
-    ],
-    "syntax-flow",
-    "transform-flow-strip-types"
-  ],
   "ignore": [
     "test/**"
   ],
   "env": {
     "development": {
+      "plugins": [
+        "typecheck",
+        "syntax-flow",
+        "transform-flow-strip-types"
+      ],
       "sourceMaps": "inline"
+    },
+    "production": {
+      "plugins": [
+        "syntax-flow",
+        "transform-flow-strip-types",
+        "add-module-exports"
+      ]
     }
   }
 }
