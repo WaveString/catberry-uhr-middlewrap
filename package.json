@@ -2,12 +2,15 @@
   "name": "catberry-uhr-middlewrap",
   "version": "0.1.3",
   "description": "Middlewrapify isomorphic HTTP requests",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "compile": "babel lib/middlewrap.js --out-file build/index.js",
-    "prepublish": "npm run compile",
+    "build": "babel lib/middlewrap.js --out-file dist/index.js",
+    "prepublish": "BABEL_ENV=production npm run compile",
+    "report": "nyc report --reporter=html",
     "lint": "eslint ./lib",
-    "test": "ava"
+    "test": "nyc ava",
+    "preversion": "npm test",
+    "postversion": "git push --tags"
   },
   "repository": {
     "type": "git",
@@ -17,9 +20,7 @@
     "catberry",
     "http",
     "ajax",
-    "request",
-    "mock",
-    "stub"
+    "request"
   ],
   "author": "Pavel Pertsev <morhetz@gmail.com>",
   "license": "MIT",
@@ -41,7 +42,8 @@
     "babel-runtime": "^6.5.0",
     "catberry-uhr": "^4.2.3",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^5.0.1"
+    "eslint-config-airbnb": "^5.0.1",
+    "nyc": "^5.6.0"
   },
   "dependencies": {
     "path-to-regexp": "^1.2.1"

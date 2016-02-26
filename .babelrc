@@ -11,5 +11,13 @@
     ],
     "syntax-flow",
     "transform-flow-strip-types"
-  ]
+  ],
+  "ignore": [
+    "test/**"
+  ],
+  "env": {
+    "development": {
+      "sourceMaps": "inline"
+    }
+  }
 }
