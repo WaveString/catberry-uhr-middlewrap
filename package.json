@@ -51,7 +51,8 @@
   },
   "ava": {
     "require": [
-      "babel-core/register"
+      "babel-core/register",
+      "babel-polyfill"
     ]
   }
 }
