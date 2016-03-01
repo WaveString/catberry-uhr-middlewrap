@@ -1,6 +1,6 @@
 {
   "name": "catberry-uhr-middlewrap",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Middlewrapify isomorphic HTTP requests",
   "main": "dist/middlewrap.js",
   "scripts": {
